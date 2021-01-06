@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-function MyinfoScreen() {
+function ProfileScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Myinfo</Text>
+      <Text>Profile</Text>
     </View>
   );
 }
 
-export default MyinfoScreen;
+export default ProfileScreen;
