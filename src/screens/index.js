@@ -17,29 +17,64 @@ const CommunityStack = createStackNavigator();
 const NewsStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 
+const headerTitleStyle = {
+  fontSize: 18,
+  textAlign: 'center', // 안드로이드 디폴트는 좌측정렬이기 때문에
+};
+
 const FavoritesStackNavigator = () => (
   <FavoritesStack.Navigator>
-    <FavoritesStack.Screen name="Favorites" component={FavoritesScreen} />
+    <FavoritesStack.Screen
+      name="Favorites"
+      component={FavoritesScreen}
+      options={{
+        headerTitleStyle: headerTitleStyle,
+      }}
+    />
   </FavoritesStack.Navigator>
 );
 const SearchStackNavigator = () => (
   <SearchStack.Navigator>
-    <SearchStack.Screen name="Search" component={SearchScreen} />
+    <SearchStack.Screen
+      name="Search"
+      component={SearchScreen}
+      options={{
+        headerTitleStyle: headerTitleStyle,
+      }}
+    />
   </SearchStack.Navigator>
 );
 const CommunityStackNavigator = () => (
   <CommunityStack.Navigator>
-    <CommunityStack.Screen name="Community" component={CommunityScreen} />
+    <CommunityStack.Screen
+      name="Community"
+      component={CommunityScreen}
+      options={{
+        headerTitleStyle: headerTitleStyle,
+      }}
+    />
   </CommunityStack.Navigator>
 );
 const NewsStackNavigator = () => (
   <NewsStack.Navigator>
-    <NewsStack.Screen name="News" component={NewsScreen} />
+    <NewsStack.Screen
+      name="News"
+      component={NewsScreen}
+      options={{
+        headerTitleStyle: headerTitleStyle,
+      }}
+    />
   </NewsStack.Navigator>
 );
 const ProfileStackNavigator = () => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={ProfileScreen} />
+    <ProfileStack.Screen
+      name="Profile"
+      component={ProfileScreen}
+      options={{
+        headerTitleStyle: headerTitleStyle,
+      }}
+    />
   </ProfileStack.Navigator>
 );
 
