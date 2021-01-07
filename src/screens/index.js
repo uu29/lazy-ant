@@ -29,6 +29,7 @@ const FavoritesStackNavigator = () => (
       component={FavoritesScreen}
       options={{
         headerTitleStyle: headerTitleStyle,
+        cardStyle: {backgroundColor: 'white'},
       }}
     />
   </FavoritesStack.Navigator>
@@ -40,6 +41,7 @@ const SearchStackNavigator = () => (
       component={SearchScreen}
       options={{
         headerTitleStyle: headerTitleStyle,
+        cardStyle: {backgroundColor: 'white'},
       }}
     />
   </SearchStack.Navigator>
@@ -51,6 +53,7 @@ const CommunityStackNavigator = () => (
       component={CommunityScreen}
       options={{
         headerTitleStyle: headerTitleStyle,
+        cardStyle: {backgroundColor: 'white'},
       }}
     />
   </CommunityStack.Navigator>
@@ -62,6 +65,7 @@ const NewsStackNavigator = () => (
       component={NewsScreen}
       options={{
         headerTitleStyle: headerTitleStyle,
+        cardStyle: {backgroundColor: 'white'},
       }}
     />
   </NewsStack.Navigator>
@@ -73,6 +77,7 @@ const ProfileStackNavigator = () => (
       component={ProfileScreen}
       options={{
         headerTitleStyle: headerTitleStyle,
+        cardStyle: {backgroundColor: 'white'},
       }}
     />
   </ProfileStack.Navigator>

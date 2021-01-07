@@ -8,9 +8,15 @@
 
 import React from 'react';
 import AppStack from './src/screens';
+import {Provider} from 'react-redux';
+import store from './store';
 
 const App = () => {
-  return <AppStack />;
+  return (
+    <Provider store={store}>
+      <AppStack />
+    </Provider>
+  );
 };
 
 export default App;
