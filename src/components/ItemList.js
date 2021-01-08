@@ -1,7 +1,24 @@
 import React from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
+import yahooClient from '../utils/client';
 
 export default function ItemList() {
+  const query = {
+    symbol: 'AMRN',
+    region: 'US',
+  };
+  const tsla = () =>
+    yahooClient
+      .post(`get-historical-data`, {qs: query})
+      .then((res) => {
+        console.log('hi');
+        console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        if (err.response) return err.response;
+      });
+
   const data = [
     {
       title: '테슬라',
