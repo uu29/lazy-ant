@@ -28,6 +28,7 @@ export default function createRequestSaga(type, request) {
         payload: error,
       });
     } finally {
+      console.log('finally');
       // 마지막으로 실행할 리듀서
     }
   };

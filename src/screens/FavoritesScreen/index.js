@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import ItemList from '../../components/ItemList';
-import {getHistoricalData} from '../../reducers/favoritesReducer';
+import {FETCH_HISTORICAL_DATA} from '../../reducers/favoritesReducer';
 
 function FavoritesScreen() {
   const dispatch = useDispatch();
@@ -11,9 +11,9 @@ function FavoritesScreen() {
   } = useSelector(({favorites}) => ({
     favorites: favorites,
   }));
-  console.log(my_favorites[0]);
+
   useEffect(() => {
-    dispatch(getHistoricalData(my_favorites[0]));
+    dispatch({type: FETCH_HISTORICAL_DATA, payload: my_favorites[0]});
   }, []);
 
   return (

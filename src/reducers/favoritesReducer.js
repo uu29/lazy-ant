@@ -1,11 +1,4 @@
-import {createAction, handleActions} from 'redux-actions';
-
-import createRequestSaga, {
-  createRequestActionTypes,
-} from '../sagas/createRequestSaga';
-import {takeLatest} from 'redux-saga/effects';
-import * as _api from '../utils/favorites';
-
+// 최초 상태값 지정해주기
 export const initialState = {
   my_favorites: [
     {symbol: '005930.KS'},
@@ -21,37 +14,30 @@ export const initialState = {
     {symbol: 'NKE', region: 'US'},
   ],
   my_favorites_error: null,
+  historical_data: [],
+  historical_data_error: null,
 };
 
-const [
-  FETCH_HISTORICAL_DATA,
-  FETCH_HISTORICAL_DATA_SUCCESS,
-  FETCH_HISTORICAL_DATA_FAILURE,
-] = createRequestActionTypes('favorites/FETCH_HISTORICAL_DATA');
+// 타입 만들기
+export const FETCH_HISTORICAL_DATA = 'FETCH_HISTORICAL_DATA';
+export const FETCH_HISTORICAL_DATA_SUCCESS = 'FETCH_HISTORICAL_DATA_SUCCESS';
+export const FETCH_HISTORICAL_DATA_FAILURE = 'FETCH_HISTORICAL_DATA_FAILURE';
 
-export const getHistoricalData = createAction(
-  FETCH_HISTORICAL_DATA,
-  ({symbol, region}) => ({
-    symbol,
-    region,
-  }),
-);
-
-const _fetchHistoricalData = createRequestSaga(
-  FETCH_HISTORICAL_DATA,
-  _api.getHistoricalData,
-);
-
-export function* authSaga() {
-  yield takeLatest(FETCH_HISTORICAL_DATA, _fetchHistoricalData);
-}
-
+// 리듀서 만들기
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_HISTORICAL_DATA_SUCCESS:
-      return {...state, my_favorites: action.payload, my_favorites_error: null};
+      return {
+        ...state,
+        historical_data: action.payload,
+        historical_data_error: null,
+      };
     case FETCH_HISTORICAL_DATA_FAILURE:
-      return {...state, my_favorites: null, my_favorites_error: action.payload};
+      return {
+        ...state,
+        historical_data: null,
+        historical_data_error: action.error,
+      };
     default:
       return state;
   }
