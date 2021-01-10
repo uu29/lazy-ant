@@ -13,7 +13,7 @@ function FavoritesScreen() {
   }));
 
   useEffect(() => {
-    dispatch({type: FETCH_HISTORICAL_DATA, payload: my_favorites[0]});
+    dispatch({type: FETCH_HISTORICAL_DATA, myFavorites: my_favorites});
   }, []);
 
   return (
