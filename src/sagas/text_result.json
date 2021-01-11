@@ -1,0 +1,498 @@
+{
+  "financialsTemplate": {
+    "code": "N",
+    "maxAge": 1
+  },
+  "price": {
+    "quoteSourceName": "Delayed Quote",
+    "regularMarketOpen": { // 정규시장 시가
+      "raw": 83300,
+      "fmt": "83,300.00"
+    },
+    "averageDailyVolume3Month": {
+      "raw": 23438040,
+      "fmt": "23.44M",
+      "longFmt": "23,438,040"
+    },
+    "exchange": "KSC",
+    "regularMarketTime": 1610087431,
+    "volume24Hr": {},
+    "regularMarketDayHigh": {
+      "raw": 90000,
+      "fmt": "90,000.00"
+    },
+    "shortName": "SamsungElec", // 이름
+    "averageDailyVolume10Day": {
+      "raw": 34746911,
+      "fmt": "34.75M",
+      "longFmt": "34,746,911"
+    },
+    "longName": "Samsung Electronics Co., Ltd.", // 풀네임
+    "regularMarketChange": {
+      "raw": 5900,
+      "fmt": "5,900.00" // 변동액
+    },
+    "currencySymbol": "₩",
+    "regularMarketPreviousClose": { // 정규시장 종가
+      "raw": 82900,
+      "fmt": "82,900.00"
+    },
+    "preMarketPrice": {},
+    "exchangeDataDelayedBy": 20,
+    "toCurrency": null,
+    "postMarketChange": {},
+    "postMarketPrice": {},
+    "exchangeName": "KSE",
+    "preMarketChange": {},
+    "circulatingSupply": {},
+    "regularMarketDayLow": {
+      "raw": 83000,
+      "fmt": "83,000.00"
+    },
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "currency": "KRW", // 화폐
+    "regularMarketPrice": { // 현재 시가
+      "raw": 88800,
+      "fmt": "88,800.00"
+    },
+    "regularMarketVolume": {
+      "raw": 57337910,
+      "fmt": "57.34M",
+      "longFmt": "57,337,910.00"
+    },
+    "lastMarket": null,
+    "regularMarketSource": "DELAYED",
+    "openInterest": {},
+    "marketState": "CLOSED",
+    "underlyingSymbol": null,
+    "marketCap": {
+      "raw": 595608213651456,
+      "fmt": "595.61T",
+      "longFmt": "595,608,213,651,456.00"
+    },
+    "quoteType": "EQUITY",
+    "volumeAllCurrencies": {},
+    "strikePrice": {},
+    "symbol": "005930.KS", // symbol
+    "maxAge": 1,
+    "fromCurrency": null,
+    "regularMarketChangePercent": { // 변동률
+      "raw": 0.071170084,
+      "fmt": "7.12%" // 변동률
+    }
+  },
+  "secFilings": {},
+  "quoteType": {
+    "exchange": "KSC",
+    "shortName": "SamsungElec",
+    "longName": "Samsung Electronics Co., Ltd.",
+    "exchangeTimezoneName": "Asia/Seoul",
+    "exchangeTimezoneShortName": "KST",
+    "isEsgPopulated": false,
+    "gmtOffSetMilliseconds": "32400000",
+    "quoteType": "EQUITY",
+    "symbol": "005930.KS",
+    "messageBoardId": "finmb_91868",
+    "market": "kr_market"
+  },
+  "calendarEvents": {
+    "maxAge": 1,
+    "earnings": {
+      "earningsDate": [
+        {
+          "raw": 1611792000,
+          "fmt": "2021-01-28"
+        },
+        {
+          "raw": 1612137600,
+          "fmt": "2021-02-01"
+        }
+      ],
+      "earningsAverage": {},
+      "earningsLow": {},
+      "earningsHigh": {},
+      "revenueAverage": {
+        "raw": 63774100000,
+        "fmt": "63.77B",
+        "longFmt": "63,774,100,000"
+      },
+      "revenueLow": {
+        "raw": 58767000000,
+        "fmt": "58.77B",
+        "longFmt": "58,767,000,000"
+      },
+      "revenueHigh": {
+        "raw": 68890000000,
+        "fmt": "68.89B",
+        "longFmt": "68,890,000,000"
+      }
+    },
+    "exDividendDate": {
+      "raw": 1601251200,
+      "fmt": "2020-09-28"
+    },
+    "dividendDate": {}
+  },
+  "summaryDetail": {
+    "previousClose": {
+      "raw": 82900,
+      "fmt": "82,900.00"
+    },
+    "regularMarketOpen": {
+      "raw": 83300,
+      "fmt": "83,300.00"
+    },
+    "twoHundredDayAverage": {
+      "raw": 61193.523,
+      "fmt": "61,193.52"
+    },
+    "trailingAnnualDividendYield": {},
+    "payoutRatio": {
+      "raw": 0.38669997,
+      "fmt": "38.67%"
+    },
+    "volume24Hr": {},
+    "regularMarketDayHigh": {
+      "raw": 90000,
+      "fmt": "90,000.00"
+    },
+    "navPrice": {},
+    "averageDailyVolume10Day": {
+      "raw": 34746911,
+      "fmt": "34.75M",
+      "longFmt": "34,746,911"
+    },
+    "totalAssets": {},
+    "regularMarketPreviousClose": {
+      "raw": 82900,
+      "fmt": "82,900.00"
+    },
+    "fiftyDayAverage": {
+      "raw": 73090.91,
+      "fmt": "73,090.91"
+    },
+    "trailingAnnualDividendRate": {},
+    "open": {
+      "raw": 83300,
+      "fmt": "83,300.00"
+    },
+    "toCurrency": null,
+    "averageVolume10days": {
+      "raw": 34746911,
+      "fmt": "34.75M",
+      "longFmt": "34,746,911"
+    },
+    "expireDate": {},
+    "yield": {},
+    "algorithm": null,
+    "dividendRate": {
+      "raw": 1416,
+      "fmt": "1,416.00"
+    },
+    "exDividendDate": {
+      "raw": 1601251200,
+      "fmt": "2020-09-28"
+    },
+    "beta": {
+      "raw": 0.931501,
+      "fmt": "0.93"
+    },
+    "circulatingSupply": {},
+    "startDate": {},
+    "regularMarketDayLow": {
+      "raw": 83000,
+      "fmt": "83,000.00"
+    },
+    "priceHint": {
+      "raw": 2,
+      "fmt": "2",
+      "longFmt": "2"
+    },
+    "currency": "KRW",
+    "regularMarketVolume": {
+      "raw": 57337910,
+      "fmt": "57.34M",
+      "longFmt": "57,337,910"
+    },
+    "lastMarket": null,
+    "maxSupply": {},
+    "openInterest": {},
+    "marketCap": {
+      "raw": 595608213651456,
+      "fmt": "595.61T",
+      "longFmt": "595,608,213,651,456"
+    },
+    "volumeAllCurrencies": {},
+    "strikePrice": {},
+    "averageVolume": {
+      "raw": 23438040,
+      "fmt": "23.44M",
+      "longFmt": "23,438,040"
+    },
+    "priceToSalesTrailing12Months": {
+      "raw": 2.5329914,
+      "fmt": "2.53"
+    },
+    "dayLow": {
+      "raw": 83000,
+      "fmt": "83,000.00"
+    },
+    "ask": {
+      "raw": 89100,
+      "fmt": "89,100.00"
+    },
+    "ytdReturn": {},
+    "askSize": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "volume": {
+      "raw": 57337910,
+      "fmt": "57.34M",
+      "longFmt": "57,337,910"
+    },
+    "fiftyTwoWeekHigh": {
+      "raw": 90000,
+      "fmt": "90,000.00"
+    },
+    "forwardPE": {},
+    "maxAge": 1,
+    "fromCurrency": null,
+    "fiveYearAvgDividendYield": {
+      "raw": 2.28,
+      "fmt": "2.28"
+    },
+    "fiftyTwoWeekLow": {
+      "raw": 42300,
+      "fmt": "42,300.00"
+    },
+    "bid": {
+      "raw": 89000,
+      "fmt": "89,000.00"
+    },
+    "tradeable": false,
+    "dividendYield": {
+      "raw": 0.0171,
+      "fmt": "1.71%"
+    },
+    "bidSize": {
+      "raw": 0,
+      "fmt": null,
+      "longFmt": "0"
+    },
+    "dayHigh": {
+      "raw": 90000,
+      "fmt": "90,000.00"
+    }
+  },
+  "symbol": "005930.KS",
+  "assetProfile": {
+    "zip": "443-742",
+    "sector": "Technology",
+    "fullTimeEmployees": 108400,
+    "compensationRisk": 1,
+    "auditRisk": 8,
+    "longBusinessSummary": "Samsung Electronics Co., Ltd. engages in the consumer electronics, information technology and mobile communications, and device solutions businesses worldwide. It offers mobile phones, tablets, wearables, virtual reality, and audio products; TVs, and home theaters; OLED and LCD panels; laptops, computers, chrome books, HDM, memory and system LSI products, monitors, and printers; and home appliances, such as refrigerators, air conditioners, ovens, air purifiers, cooktops and hoods, microwaves, dishwashers, washers, dryers, vacuum cleaners, and heating products, as well as TV and home theater accessories. It also provides security and monitoring, trackers, Wi-Fi routers, hubs, sensors, outlets, and buttons. In addition, the company is involved in the technology and venture capital investment businesses; manufacture of semiconductor equipment and components; and provision of repair services for electronic devices. Further, it provides medical equipment; software development and supply; toll processing of semiconductors and display panels; connected car systems, general logistics agency, financing, marketing, consulting, AI technology research, and cloud services; enterprise automation solutions and connected services; and digital advertising platforms. Additionally, it offers image sensing devices and mobile payment services; and designs and develops software products. The company serves finance, government, healthcare, education, hospitality, transportation, retail, legal, public safety, and manufacturing industries. Samsung Electronics Co., Ltd. was founded in 1938 and is based in Suwon, South Korea.",
+    "city": "Suwon-si",
+    "phone": "82 31 200 1114",
+    "shareHolderRightsRisk": 1,
+    "compensationAsOfEpochDate": 1577750400,
+    "governanceEpochDate": 1606780800,
+    "boardRisk": 1,
+    "country": "South Korea",
+    "companyOfficers": [
+      {
+        "totalPay": {
+          "raw": 3451000000,
+          "fmt": "3.45B",
+          "longFmt": "3,451,000,000"
+        },
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "yearBorn": 1958,
+        "name": "Mr. Ki-Nam  Kim Ph.D.",
+        "title": "Vice Chairman, CEO & Head of Device Solutions",
+        "maxAge": 1,
+        "fiscalYear": 2019,
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "age": 62
+      },
+      {
+        "totalPay": {
+          "raw": 2828000000,
+          "fmt": "2.83B",
+          "longFmt": "2,828,000,000"
+        },
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "yearBorn": 1961,
+        "name": "Mr. Dong-Jin  Koh",
+        "title": "Pres, CEO, Head of IT & Mobile Communications and Exec. Director",
+        "maxAge": 1,
+        "fiscalYear": 2019,
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "age": 59
+      },
+      {
+        "totalPay": {
+          "raw": 2578000000,
+          "fmt": "2.58B",
+          "longFmt": "2,578,000,000"
+        },
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "yearBorn": 1961,
+        "name": "Mr. Hyun-Suk  Kim",
+        "title": "Pres, CEO, Head of Consumer Electronics & Exec. Director",
+        "maxAge": 1,
+        "fiscalYear": 2019,
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "age": 59
+      },
+      {
+        "maxAge": 1,
+        "name": "Mr. Hyun-Chong  Kim",
+        "title": "Pres and Chief Legal Officer",
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        }
+      },
+      {
+        "maxAge": 1,
+        "name": "Kyungwhoon  Cheun",
+        "title": "Pres",
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        }
+      },
+      {
+        "maxAge": 1,
+        "name": "Mr. Yoon-Ho  Choi",
+        "age": 57,
+        "title": "Pres, CFO & Exec. Director",
+        "yearBorn": 1963,
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        }
+      },
+      {
+        "maxAge": 1,
+        "name": "Jae-seung  Lee",
+        "age": 60,
+        "title": "Pres",
+        "yearBorn": 1960,
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        }
+      },
+      {
+        "maxAge": 1,
+        "name": "Mr. Robert M. Yi",
+        "title": "Head of Investor Relations",
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        }
+      },
+      {
+        "maxAge": 1,
+        "name": "Young-Soo  Kim",
+        "age": 51,
+        "title": "Compliance Officer",
+        "yearBorn": 1969,
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        }
+      },
+      {
+        "maxAge": 1,
+        "name": "Jung-Suk  Kim",
+        "title": "Managing Director and Director of Corp. Communications",
+        "exercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        },
+        "unexercisedValue": {
+          "raw": 0,
+          "fmt": null,
+          "longFmt": "0"
+        }
+      }
+    ],
+    "website": "http://www.samsung.com",
+    "maxAge": 86400,
+    "overallRisk": 1,
+    "address1": "129, Samsung-ro",
+    "industry": "Consumer Electronics",
+    "address2": "Yeongtong-gu"
+  },
+  "pageViews": {}
+}

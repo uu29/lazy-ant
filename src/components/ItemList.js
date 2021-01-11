@@ -1,105 +1,37 @@
 import React from 'react';
+import styled, {css} from '@emotion/native';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import yahooClient from '../utils/client';
 
-export default function ItemList() {
-  const query = {
-    symbol: 'AMRN',
-    region: 'US',
-  };
-  const tsla = () =>
-    yahooClient
-      .post(`get-historical-data`, {qs: query})
-      .then((res) => {
-        console.log('hi');
-        console.log(res);
-        return res;
-      })
-      .catch((err) => {
-        if (err.response) return err.response;
-      });
-
-  const data = [
-    {
-      title: '테슬라',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: '엔비디아',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: '삼성전자',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: '네온테크',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: 'SK하이닉스',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: 'SK이노베이션',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: 'LG전자',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: 'LG전자',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: 'LG전자',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-    {
-      title: 'LG전자',
-      price: 700.77,
-      upanddown: -10.59,
-      percentage: -1.66,
-    },
-  ];
+export default function ItemList({symbol_profiles}) {
   return (
     <FlatList
-      data={data}
-      renderItem={({item, i}) => (
-        <View style={styles.container} key={i}>
+      data={symbol_profiles}
+      renderItem={({item}) => (
+        <View style={styles.container}>
           <View>
-            <Text style={styles.itemNameText}>{item.title}</Text>
+            <Text style={styles.itemNameText}>{item.shortName}</Text>
           </View>
           <View>
-            <Text style={styles.itemPriceText}>{item.price}</Text>
-            <Text style={styles.itemPercentText}>
-              {item.upanddown} ({item.percentage}%)
-            </Text>
+            <Text style={styles.itemPriceText}>{item.raw}</Text>
+            <Percent
+              isNegative={Math.sign(item.rMarketChange) === -1 ? true : false}>
+              {item.rMarketChange} ({item.rMarketChangePercent})
+            </Percent>
           </View>
         </View>
       )}
+      keyExtractor={(item, index) => index.toString()}
     />
   );
 }
+
+const Percent = styled.Text`
+  padding-top: 6px,
+  text-align: 'right',
+  font-size: 15px,
+  font-weight: 500,
+  color: ${(props) => (props.isNegative ? '#2090F8' : '#DF281D')}
+`;
 
 const styles = StyleSheet.create({
   container: {

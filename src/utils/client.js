@@ -8,8 +8,6 @@ const YahooClient = axios.create({
     // 커스텀헤더를 넣으면 오류남. 커스텀헤더에는 ' 가 생김.
     Accept: 'application/json',
     useQueryString: 'true',
-    'x-rapidapi-key': '7cd6735678msh7d3a80d86d9f15ep1739d8jsn0b3dc896f11c',
-    'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com',
   },
 });
 
