@@ -35,12 +35,11 @@ const FavoritesStackNavigator = () => (
   </FavoritesStack.Navigator>
 );
 const SearchStackNavigator = () => (
-  <SearchStack.Navigator>
+  <SearchStack.Navigator headerMode="none">
     <SearchStack.Screen
       name="Search"
       component={SearchScreen}
       options={{
-        headerTitleStyle: headerTitleStyle,
         cardStyle: {backgroundColor: 'white'},
       }}
     />

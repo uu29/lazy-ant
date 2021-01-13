@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {css} from '@emotion/native';
+import styled from '@emotion/native';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 
 export default function ItemList({symbol_profiles}) {

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import ItemList from '../../components/ItemList';
+import ItemList from '../../components/favorites/ItemList';
 import {FETCH_SYMBOL_PROFILES} from '../../reducers/favoritesReducer';
 
 function FavoritesScreen() {
