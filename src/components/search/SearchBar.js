@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {View, TextInput, StyleSheet, Dimensions} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-function SearchBar() {
-  const [value, onChangeText] = useState('');
+function SearchBar({value, onChangeText}) {
   const width = Dimensions.get('window').width;
 
   return (
