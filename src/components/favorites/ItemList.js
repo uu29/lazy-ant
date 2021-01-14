@@ -1,25 +1,36 @@
 import React from 'react';
 import styled from '@emotion/native';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
-export default function ItemList({symbol_profiles}) {
+export default function ItemList({symbol_profiles, navigation}) {
+  const StockItem = ({item}) => (
+    <TouchableWithoutFeedback
+      onPress={() => navigation.push('StockInformationStack')}>
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.itemNameText}>{item.shortName}</Text>
+        </View>
+        <View>
+          <Text style={styles.itemPriceText}>{item.raw}</Text>
+          <Percent
+            isNegative={Math.sign(item.rMarketChange) === -1 ? true : false}>
+            {item.rMarketChange.toFixed(2)} ({item.rMarketChangePercent})
+          </Percent>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+
   return (
     <FlatList
       data={symbol_profiles}
-      renderItem={({item}) => (
-        <View style={styles.container}>
-          <View>
-            <Text style={styles.itemNameText}>{item.shortName}</Text>
-          </View>
-          <View>
-            <Text style={styles.itemPriceText}>{item.raw}</Text>
-            <Percent
-              isNegative={Math.sign(item.rMarketChange) === -1 ? true : false}>
-              {item.rMarketChange} ({item.rMarketChangePercent})
-            </Percent>
-          </View>
-        </View>
-      )}
+      renderItem={({item}) => <StockItem item={item} />}
       keyExtractor={(item, index) => index.toString()}
     />
   );

@@ -9,6 +9,7 @@ import SearchScreen from './SearchScreen';
 import CommunityScreen from './CommunityScreen';
 import NewsScreen from './NewsScreen';
 import ProfileScreen from './ProfileScreen';
+import StockInformation from './StockInformation';
 
 const Tab = createBottomTabNavigator();
 const FavoritesStack = createStackNavigator();
@@ -16,6 +17,7 @@ const SearchStack = createStackNavigator();
 const CommunityStack = createStackNavigator();
 const NewsStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
+const StockInformationStack = createStackNavigator();
 
 const headerTitleStyle = {
   fontSize: 18,
@@ -31,6 +33,7 @@ const FavoritesStackNavigator = () => (
         headerTitleStyle: headerTitleStyle,
         cardStyle: {backgroundColor: 'white'},
       }}
+      
     />
   </FavoritesStack.Navigator>
 );
@@ -81,8 +84,23 @@ const ProfileStackNavigator = () => (
     />
   </ProfileStack.Navigator>
 );
+const StockInformationStackNavigator = () => (
+  <StockInformationStack.Navigator>
+    <StockInformationStack
+      name="Stock Information"
+      component={StockInformation}
+      options={{
+        headerTitleStyle: headerTitleStyle,
+        cardStyle: {backgroundColor: 'white'},
+      }}
+    />
+  </StockInformationStack.Navigator>
+);
 
-function AppStack() {
+function AppStack({navigation}) {
+  const navigateToStockInfo = () => {
+    navigation.push('StockInformationStackNavigator');
+  };
   return (
     <NavigationContainer>
       <Tab.Navigator

@@ -26,7 +26,7 @@ function Chart({chartData}) {
                     </AntNumber>
                   </View>
                 )}
-                <Symbols.StarBtn color_code={chart.color_code} />
+                <Symbols.StarBtn />
               </View>
             ))}
           </View>
