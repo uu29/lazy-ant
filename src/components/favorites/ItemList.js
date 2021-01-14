@@ -8,10 +8,9 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
-export default function ItemList({symbol_profiles, navigation}) {
+export default function ItemList({symbol_profiles, onPress}) {
   const StockItem = ({item}) => (
-    <TouchableWithoutFeedback
-      onPress={() => navigation.push('StockInformationStack')}>
+    <TouchableWithoutFeedback onPress={() => onPress()}>
       <View style={styles.container}>
         <View>
           <Text style={styles.itemNameText}>{item.shortName}</Text>

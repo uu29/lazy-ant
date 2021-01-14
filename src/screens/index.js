@@ -1,42 +1,86 @@
 import React from 'react';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import FavoritesScreen from './FavoritesScreen';
+import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
 import CommunityScreen from './CommunityScreen';
 import NewsScreen from './NewsScreen';
 import ProfileScreen from './ProfileScreen';
-import StockInformation from './StockInformation';
+import StockScreen from './StockScreen';
 
 const Tab = createBottomTabNavigator();
-const FavoritesStack = createStackNavigator();
 const SearchStack = createStackNavigator();
 const CommunityStack = createStackNavigator();
 const NewsStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
-const StockInformationStack = createStackNavigator();
 
 const headerTitleStyle = {
   fontSize: 18,
   textAlign: 'center', // 안드로이드 디폴트는 좌측정렬이기 때문에
 };
 
-const FavoritesStackNavigator = () => (
-  <FavoritesStack.Navigator>
-    <FavoritesStack.Screen
-      name="Favorites"
-      component={FavoritesScreen}
-      options={{
-        headerTitleStyle: headerTitleStyle,
-        cardStyle: {backgroundColor: 'white'},
-      }}
-      
-    />
-  </FavoritesStack.Navigator>
-);
+function getHeaderTitle(route) {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+  console.log(route);
+  console.log(routeName);
+
+  switch (routeName) {
+    case 'Home':
+      return 'Favorites';
+    default:
+      return '응애';
+  }
+}
+
+// 1. 준비: StackNavigator 객체를 생성한다.
+const Stack = createStackNavigator();
+
+// 2. 각각의 필요한 스택 스크린을 만든다. - 홈, 주식정보
+function StocksScreen({route, navigation}) {
+  const {symbol} = route.params;
+  // 주식 정보 스크린
+  const onPress = () => {
+    navigation.navigate('Home');
+  };
+  return <StockScreen onPress={onPress} symbol={symbol} />;
+}
+
+function HomeScreenStackScreen({navigation}) {
+  const onPress = () => {
+    navigation.navigate('Root', {
+      screen: 'Stocks',
+      params: {symbol: '삼성전자'},
+    });
+  };
+  return <HomeScreen onPress={onPress} />;
+}
+
+// 3. 만든 스크린을 하나의 함수에 묶어 스택네비게이터로 감싼다.
+function Root() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreenStackScreen}
+        options={({route}) => ({
+          headerTitle: getHeaderTitle(route),
+        })}
+      />
+      <Stack.Screen
+        name="Stocks"
+        component={StocksScreen}
+        options={({route}) => ({
+          headerTitle: getHeaderTitle(route),
+        })}
+      />
+    </Stack.Navigator>
+  );
+}
+
 const SearchStackNavigator = () => (
   <SearchStack.Navigator headerMode="none">
     <SearchStack.Screen
@@ -84,23 +128,8 @@ const ProfileStackNavigator = () => (
     />
   </ProfileStack.Navigator>
 );
-const StockInformationStackNavigator = () => (
-  <StockInformationStack.Navigator>
-    <StockInformationStack
-      name="Stock Information"
-      component={StockInformation}
-      options={{
-        headerTitleStyle: headerTitleStyle,
-        cardStyle: {backgroundColor: 'white'},
-      }}
-    />
-  </StockInformationStack.Navigator>
-);
 
-function AppStack({navigation}) {
-  const navigateToStockInfo = () => {
-    navigation.push('StockInformationStackNavigator');
-  };
+function AppStack() {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -139,7 +168,7 @@ function AppStack({navigation}) {
           inactiveTintColor: '#C7CDD3', // 비활성화 색
           showLabel: false, // 텍스트 숨기기
         }}>
-        <Tab.Screen name="Favorites" component={FavoritesStackNavigator} />
+        <Tab.Screen name="Root" component={Root} />
         <Tab.Screen name="Search" component={SearchStackNavigator} />
         <Tab.Screen name="Community" component={CommunityStackNavigator} />
         <Tab.Screen name="News" component={NewsStackNavigator} />

@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import ItemList from '../../components/favorites/ItemList';
 import {FETCH_SYMBOL_PROFILES} from '../../reducers/favoritesReducer';
 
-function FavoritesScreen() {
+function HomeScreen({onPress}) {
   const dispatch = useDispatch();
   const {
     favorites: {is_fetching, my_favorites, symbol_profiles},
@@ -21,7 +21,7 @@ function FavoritesScreen() {
       {is_fetching ? (
         <Text>데이터를 불러오는 중입니다.</Text>
       ) : (
-        <ItemList symbol_profiles={symbol_profiles} />
+        <ItemList symbol_profiles={symbol_profiles} onPress={onPress} />
       )}
     </View>
   );
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FavoritesScreen;
+export default HomeScreen;
