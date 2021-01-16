@@ -10,7 +10,7 @@ import {
 
 export default function ItemList({symbol_profiles, onPress}) {
   const StockItem = ({item}) => (
-    <TouchableWithoutFeedback onPress={() => onPress()}>
+    <TouchableWithoutFeedback onPress={() => onPress(item.symbol)}>
       <View style={styles.container}>
         <View>
           <Text style={styles.itemNameText}>{item.shortName}</Text>

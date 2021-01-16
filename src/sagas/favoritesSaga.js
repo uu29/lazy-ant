@@ -34,7 +34,6 @@ function* fetchSymbolProfiles$(action) {
         return;
       }
       let {data} = res;
-      console.log(data.price);
       let {
         price: {
           regularMarketPrice: {raw},
@@ -42,12 +41,14 @@ function* fetchSymbolProfiles$(action) {
           currency,
           regularMarketChangePercent,
           regularMarketChange,
+          symbol,
         },
       } = data;
       let rMarketChange = regularMarketChange.raw;
       let rMarketChangePercent = regularMarketChangePercent.fmt;
       // 가장 최신 주가 정보를 넣어줌
       profiles.push({
+        symbol: symbol,
         raw: raw,
         shortName: shortName,
         currency: currency,

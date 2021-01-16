@@ -1,6 +1,8 @@
 import React from 'react';
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  getFocusedRouteNameFromRoute,
+} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -24,15 +26,15 @@ const headerTitleStyle = {
 };
 
 function getHeaderTitle(route) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
-  console.log(route);
+  const {name} = route;
+  const routeName = getFocusedRouteNameFromRoute(name) ?? 'Hello';
   console.log(routeName);
 
   switch (routeName) {
     case 'Home':
       return 'Favorites';
     default:
-      return '응애';
+      return '알수없음';
   }
 }
 
@@ -50,10 +52,10 @@ function StocksScreen({route, navigation}) {
 }
 
 function HomeScreenStackScreen({navigation}) {
-  const onPress = () => {
+  const onPress = (symbol) => {
     navigation.navigate('Root', {
       screen: 'Stocks',
-      params: {symbol: '삼성전자'},
+      params: {symbol: symbol},
     });
   };
   return <HomeScreen onPress={onPress} />;
@@ -68,6 +70,7 @@ function Root() {
         component={HomeScreenStackScreen}
         options={({route}) => ({
           headerTitle: getHeaderTitle(route),
+          cardStyle: {backgroundColor: 'white'},
         })}
       />
       <Stack.Screen
@@ -75,6 +78,7 @@ function Root() {
         component={StocksScreen}
         options={({route}) => ({
           headerTitle: getHeaderTitle(route),
+          cardStyle: {backgroundColor: 'white'},
         })}
       />
     </Stack.Navigator>
