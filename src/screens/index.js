@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  NavigationContainer,
-  getFocusedRouteNameFromRoute,
-} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HomeScreen from './HomeScreen';
+import LoginScreen from './LoginScreen';
 import SearchScreen from './SearchScreen';
 import CommunityScreen from './CommunityScreen';
 import NewsScreen from './NewsScreen';
@@ -26,13 +24,11 @@ const headerTitleStyle = {
 };
 
 function getHeaderTitle(route) {
-  const {name} = route;
-  const routeName = getFocusedRouteNameFromRoute(name) ?? 'Hello';
-  console.log(routeName);
-
-  switch (routeName) {
+  const {name, params} = route;
+  if (params && params.symbol) console.log(params.symbol);
+  switch (name) {
     case 'Home':
-      return 'Favorites';
+      return '즐겨찾기';
     default:
       return '알수없음';
   }
@@ -51,7 +47,7 @@ function StocksScreen({route, navigation}) {
   return <StockScreen onPress={onPress} symbol={symbol} />;
 }
 
-function HomeScreenStackScreen({navigation}) {
+function HomeScreenStack({navigation}) {
   const onPress = (symbol) => {
     navigation.navigate('Root', {
       screen: 'Stocks',
@@ -61,13 +57,22 @@ function HomeScreenStackScreen({navigation}) {
   return <HomeScreen onPress={onPress} />;
 }
 
+function LoginScreenStack({navigation}) {
+  const onPress = (symbol) => {
+    navigation.navigate('App', {
+      screen: 'Apps',
+    });
+  };
+  return <LoginScreen onPress={onPress} />;
+}
+
 // 3. 만든 스크린을 하나의 함수에 묶어 스택네비게이터로 감싼다.
 function Root() {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
-        component={HomeScreenStackScreen}
+        component={HomeScreenStack}
         options={({route}) => ({
           headerTitle: getHeaderTitle(route),
           cardStyle: {backgroundColor: 'white'},
@@ -78,6 +83,9 @@ function Root() {
         component={StocksScreen}
         options={({route}) => ({
           headerTitle: getHeaderTitle(route),
+          headerTitleStyle: {
+            // color: 'red',
+          },
           cardStyle: {backgroundColor: 'white'},
         })}
       />
@@ -133,53 +141,74 @@ const ProfileStackNavigator = () => (
   </ProfileStack.Navigator>
 );
 
-function AppStack() {
+function AppScreenStack() {
+  return (
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+          // focused: bool, 클릭했는지 여부
+
+          switch (route.name) {
+            case 'Search':
+              iconName = 'magnify';
+              break;
+            case 'Community':
+              iconName = 'forum-outline';
+              break;
+            case 'News':
+              iconName = 'view-dashboard-outline';
+              break;
+            case 'Profile':
+              iconName = 'account-circle-outline';
+              break;
+            default:
+              iconName = 'star-outline';
+          }
+          return (
+            <MaterialCommunityIcons size={size} name={iconName} color={color} />
+          );
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: '#1B2228', // 활성화 되었을 때 색
+        inactiveTintColor: '#C7CDD3', // 비활성화 색
+        showLabel: false, // 텍스트 숨기기
+      }}>
+      <Tab.Screen name="Root" component={Root} />
+      <Tab.Screen name="Search" component={SearchStackNavigator} />
+      <Tab.Screen name="Community" component={CommunityStackNavigator} />
+      <Tab.Screen name="News" component={NewsStackNavigator} />
+      <Tab.Screen name="Profile" component={ProfileStackNavigator} />
+    </Tab.Navigator>
+  );
+}
+
+function IntroStack() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
-            let iconName;
-            // focused: bool, 클릭했는지 여부
-
-            switch (route.name) {
-              case 'Search':
-                iconName = 'magnify';
-                break;
-              case 'Community':
-                iconName = 'forum-outline';
-                break;
-              case 'News':
-                iconName = 'view-dashboard-outline';
-                break;
-              case 'Profile':
-                iconName = 'account-circle-outline';
-                break;
-              default:
-                iconName = 'star-outline';
-            }
-            return (
-              <MaterialCommunityIcons
-                size={size}
-                name={iconName}
-                color={color}
-              />
-            );
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: '#1B2228', // 활성화 되었을 때 색
-          inactiveTintColor: '#C7CDD3', // 비활성화 색
-          showLabel: false, // 텍스트 숨기기
-        }}>
-        <Tab.Screen name="Root" component={Root} />
-        <Tab.Screen name="Search" component={SearchStackNavigator} />
-        <Tab.Screen name="Community" component={CommunityStackNavigator} />
-        <Tab.Screen name="News" component={NewsStackNavigator} />
-        <Tab.Screen name="Profile" component={ProfileStackNavigator} />
-      </Tab.Navigator>
+      <Stack.Navigator headerMode="none">
+        <Stack.Screen
+          name="Login"
+          component={LoginScreenStack}
+          options={({route}) => ({
+            cardStyle: {backgroundColor: 'white'},
+          })}
+        />
+        <Stack.Screen
+          name="Apps"
+          component={AppScreenStack}
+          options={({route}) => ({
+            headerTitle: getHeaderTitle(route),
+            headerTitleStyle: {
+              // color: 'red',
+            },
+            cardStyle: {backgroundColor: 'white'},
+          })}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default AppStack;
+export default IntroStack;
