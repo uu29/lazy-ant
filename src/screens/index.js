@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import HomeScreen from './HomeScreen';
 import LoginScreen from './LoginScreen';
+import RegisterScreen from './RegisterScreen';
 import SearchScreen from './SearchScreen';
 import CommunityScreen from './CommunityScreen';
 import NewsScreen from './NewsScreen';
@@ -29,6 +30,8 @@ function getHeaderTitle(route) {
   switch (name) {
     case 'Home':
       return '즐겨찾기';
+    case 'Register':
+      return '회원가입';
     default:
       return '알수없음';
   }
@@ -58,12 +61,21 @@ function HomeScreenStack({navigation}) {
 }
 
 function LoginScreenStack({navigation}) {
+  const onPress = () => {
+    navigation.navigate('Register', {
+      screen: 'Register',
+    });
+  };
+  return <LoginScreen onPress={onPress} />;
+}
+
+function RegisterScreenStack({navigation}) {
   const onPress = (symbol) => {
     navigation.navigate('App', {
       screen: 'Apps',
     });
   };
-  return <LoginScreen onPress={onPress} />;
+  return <RegisterScreen onPress={onPress} />;
 }
 
 // 3. 만든 스크린을 하나의 함수에 묶어 스택네비게이터로 감싼다.
@@ -187,11 +199,22 @@ function AppScreenStack() {
 function IntroStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none">
+      <Stack.Navigator>
         <Stack.Screen
           name="Login"
+          headerMode="none"
           component={LoginScreenStack}
           options={({route}) => ({
+            headerShown: false,
+            cardStyle: {backgroundColor: 'white'},
+          })}
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreenStack}
+          options={({route}) => ({
+            headerTitle: getHeaderTitle(route),
+            headerTitleStyle: headerTitleStyle,
             cardStyle: {backgroundColor: 'white'},
           })}
         />

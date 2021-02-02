@@ -1,19 +1,21 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {SvgUri, SvgXml} from 'react-native-svg';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 // import Logo from '../../assets/images/logo-big.svg';
 import LogoBig from './LogoBig';
 
-function LoginScreen({onPress}) {
+export default function LoginScreen({onPress}) {
   return (
     <View style={styles.container}>
       <LogoBig />
       <View style={styles.registerTextContainer}>
         <Text style={styles.registerText}>회원가입</Text>
       </View>
-      <View style={styles.btn}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={styles.btn}
+        onPress={onPress}>
         <Text style={styles.btnText}>이메일로 시작하기</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -34,16 +36,14 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   btn: {
-    borderColor: '#000',
-    borderWidth: 1,
     borderRadius: 2,
+    backgroundColor: '#2196EB',
   },
   btnText: {
     fontSize: 20,
     paddingVertical: 14,
     width: 270,
     textAlign: 'center',
+    color: '#fff',
   },
 });
-
-export default LoginScreen;
