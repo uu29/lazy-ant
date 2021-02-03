@@ -1,15 +1,30 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TextInput, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
+import {useDispatch} from 'react-redux';
 import useInputs from '../../hooks/useInputs';
+import {REQUEST_SIGNUP} from '../../reducers/authReducer';
 
 export default function RegisterScreen({onPress}) {
   const width = Dimensions.get('window').width;
+  const dispatch = useDispatch();
 
   const initialForm = {
     email: '',
     password: '',
   };
-  const [{email, password}, onChangeText, reset] = useInputs(initialForm);
+  const [form, onChangeText, reset] = useInputs(initialForm);
+  const {email, password} = form;
+
+  const onPressSubmit = () => {
+    dispatch({type: REQUEST_SIGNUP, payload: form});
+  };
 
   return (
     <View style={styles.container}>
@@ -27,6 +42,9 @@ export default function RegisterScreen({onPress}) {
         onChangeText={(text) => onChangeText('password', text)}
         value={password}
       />
+      <TouchableOpacity style={styles.btn} onPress={onPressSubmit}>
+        <Text style={styles.btnText}>가입하기</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -45,5 +63,16 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     borderColor: '#5C6571',
     fontSize: 20,
+  },
+  btn: {
+    borderRadius: 2,
+    backgroundColor: '#2196EB',
+  },
+  btnText: {
+    fontSize: 20,
+    paddingVertical: 14,
+    width: 270,
+    textAlign: 'center',
+    color: '#fff',
   },
 });

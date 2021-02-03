@@ -13,6 +13,7 @@ export default function* saga() {
 // 사가 함수 만들기
 function* requestSignup$(action) {
   const {payload} = action;
+  console.log(payload);
   if (!payload) return;
   try {
     const res = yield call(api._signupRequest, payload);
@@ -24,6 +25,7 @@ function* requestSignup$(action) {
     }
     yield put({type: REQUEST_SIGNUP_SUCCESS});
   } catch (error) {
+    console.log(error);
     yield put({type: REQUEST_SIGNUP_FAILURE, error: error});
     return;
   } finally {
