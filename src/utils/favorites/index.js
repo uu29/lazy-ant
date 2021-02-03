@@ -1,4 +1,4 @@
-import yahooClient from '../client';
+import yahooClient from '../yahooClient';
 
 const _fetchHistoricalData = (params) => {
   return yahooClient

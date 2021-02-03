@@ -9,7 +9,7 @@ import {
 import * as api from '../utils/favorites';
 
 // 사가 함수 실행
-export default function* authSaga() {
+export default function* saga() {
   yield takeLatest(FETCH_SYMBOL_PROFILES, fetchSymbolProfiles$);
 }
 

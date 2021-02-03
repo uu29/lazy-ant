@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-// import Logo from '../../assets/images/logo-big.svg';
 import LogoBig from './LogoBig';
 
 export default function LoginScreen({onPress}) {

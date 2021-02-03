@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import {useDispatch, useSelector} from 'react-redux';
 import HomeScreen from './HomeScreen';
 import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
@@ -197,39 +197,46 @@ function AppScreenStack() {
 }
 
 function IntroStack() {
+  const dispatch = useDispatch();
+  const {
+    auth: {is_logged_in, error},
+  } = useSelector(({auth}) => ({
+    auth: auth,
+  }));
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Login"
-          headerMode="none"
-          component={LoginScreenStack}
-          options={({route}) => ({
-            headerShown: false,
-            cardStyle: {backgroundColor: 'white'},
-          })}
-        />
-        <Stack.Screen
-          name="Register"
-          component={RegisterScreenStack}
-          options={({route}) => ({
-            headerTitle: getHeaderTitle(route),
-            headerTitleStyle: headerTitleStyle,
-            cardStyle: {backgroundColor: 'white'},
-          })}
-        />
-        <Stack.Screen
-          name="Apps"
-          component={AppScreenStack}
-          options={({route}) => ({
-            headerTitle: getHeaderTitle(route),
-            headerTitleStyle: {
-              // color: 'red',
-            },
-            cardStyle: {backgroundColor: 'white'},
-          })}
-        />
-      </Stack.Navigator>
+      {is_logged_in ? (
+        <AppScreenStack />
+      ) : (
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Login"
+            headerMode="none"
+            component={LoginScreenStack}
+            options={({route}) => ({
+              headerShown: false,
+              cardStyle: {backgroundColor: 'white'},
+            })}
+          />
+          <Stack.Screen
+            name="Register"
+            component={RegisterScreenStack}
+            options={({route}) => ({
+              headerTitle: getHeaderTitle(route),
+              headerTitleStyle: headerTitleStyle,
+              cardStyle: {backgroundColor: 'white'},
+            })}
+          />
+          <Stack.Screen
+            name="Apps"
+            component={AppScreenStack}
+            options={({route}) => ({
+              headerTitle: getHeaderTitle(route),
+              cardStyle: {backgroundColor: 'white'},
+            })}
+          />
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 }

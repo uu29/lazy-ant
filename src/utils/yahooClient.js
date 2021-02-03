@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // axios 인스턴스 생성
-const YahooClient = axios.create({
+const client = axios.create({
   baseURL: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com',
   // timeout: 1000,
   headers: {
@@ -12,7 +12,7 @@ const YahooClient = axios.create({
 });
 
 // 요청 인티셉터 (요청 전에 가로채서 axios 설정을 적용함)
-YahooClient.interceptors.request.use(
+client.interceptors.request.use(
   function (config) {
     const headers = {
       x_rapidapi_key: '7cd6735678msh7d3a80d86d9f15ep1739d8jsn0b3dc896f11c',
@@ -31,7 +31,7 @@ YahooClient.interceptors.request.use(
 );
 
 // 응답 인티셉터 (응답 직전에 호출)
-YahooClient.interceptors.response.use(
+client.interceptors.response.use(
   function (response) {
     // https stauts === 200 일 때 - axios 함수에서 .then()으로 연결됨
     return response;
@@ -43,4 +43,4 @@ YahooClient.interceptors.response.use(
   },
 );
 
-export default YahooClient;
+export default client;

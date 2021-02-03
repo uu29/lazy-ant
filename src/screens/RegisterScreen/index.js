@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Dimensions} from 'react-native';
+import useInputs from '../../hooks/useInputs';
 
 export default function RegisterScreen({onPress}) {
-  const [email, onChangeEmail] = React.useState('');
-  const [password, onChangePassword] = React.useState('');
   const width = Dimensions.get('window').width;
+
+  const initialForm = {
+    email: '',
+    password: '',
+  };
+  const [{email, password}, onChangeText, reset] = useInputs(initialForm);
 
   return (
     <View style={styles.container}>
@@ -12,14 +17,14 @@ export default function RegisterScreen({onPress}) {
         placeholder="이메일을 입력해주세요"
         style={styles.textInput}
         width={width - 80}
-        onChangeText={(text) => onChangeEmail(text)}
+        onChangeText={(text) => onChangeText('email', text)}
         value={email}
       />
       <TextInput
         secureTextEntry={true}
         style={styles.textInput}
         width={width - 80}
-        onChangeText={(text) => onChangePassword(text)}
+        onChangeText={(text) => onChangeText('password', text)}
         value={password}
       />
     </View>
