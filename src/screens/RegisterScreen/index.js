@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styled from '@emotion/native';
 import {
   View,
   Text,
@@ -19,10 +20,11 @@ export default function RegisterScreen({onPress}) {
     email: '',
     password: '',
   };
-  const [form, onChangeText, reset] = useInputs(initialForm);
+  const [form, onChangeText] = useInputs(initialForm);
   const {email, password} = form;
 
   const onPressSubmit = () => {
+    if (email.trim() === '') alert('이메일을 입력해주세요.');
     dispatch({type: REQUEST_SIGNUP, payload: form});
   };
 
@@ -43,11 +45,19 @@ export default function RegisterScreen({onPress}) {
         value={password}
       />
       <TouchableOpacity style={styles.btn} onPress={onPressSubmit}>
-        <Text style={styles.btnText}>가입하기</Text>
+        <SubmitText width={width - 80}>가입하기</SubmitText>
       </TouchableOpacity>
     </View>
   );
 }
+
+const SubmitText = styled.Text`
+  width: ${(props) => `${props.width}px`};
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  padding-vertical: 14px;
+`;
 
 const styles = StyleSheet.create({
   container: {
@@ -65,14 +75,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   btn: {
+    marginTop: 10,
     borderRadius: 2,
     backgroundColor: '#2196EB',
-  },
-  btnText: {
-    fontSize: 20,
-    paddingVertical: 14,
-    width: 270,
-    textAlign: 'center',
-    color: '#fff',
   },
 });
