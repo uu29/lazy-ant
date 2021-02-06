@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import LogoBig from './LogoBig';
 
-export default function LoginScreen({onPress}) {
+export default function Intro({onPress}) {
   return (
     <View style={styles.container}>
       <LogoBig />

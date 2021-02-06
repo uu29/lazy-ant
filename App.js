@@ -7,14 +7,14 @@
  */
 
 import React from 'react';
-import IntroStack from './src/screens';
+import Root from './src/screens';
 import {Provider} from 'react-redux';
 import store from './store';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <IntroStack />
+      <Root />
     </Provider>
   );
 };

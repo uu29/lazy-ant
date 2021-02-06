@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 
-export default function StockScreen({onPress, symbol}) {
+export default function Detail({onPress, symbol}) {
   return (
     <View>
       <Text>주가정보 스크린</Text>

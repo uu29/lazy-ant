@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import ItemList from '../../components/favorites/ItemList';
 import {FETCH_SYMBOL_PROFILES} from '../../reducers/favoritesReducer';
 
-function HomeScreen({onPress}) {
+export default function Home({onPress}) {
   const dispatch = useDispatch();
   const {
     favorites: {is_fetching, my_favorites, symbol_profiles},
@@ -32,5 +32,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default HomeScreen;
